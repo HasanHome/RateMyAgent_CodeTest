@@ -1,0 +1,24 @@
+@import '../../styles/colors.scss';
+
+.navbar {
+  background-color: white;
+  border-bottom: 1px solid $border-color;
+
+  a {
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    text-transform: none;
+    color: $secondary-text-color;
+    font-size: 1.8rem;
+
+    &.active {
+      font-weight: bold;
+      color: $mint-dark;
+    }
+
+    &:hover {
+      background-color: $steel-10;
+    }
+  }
+}

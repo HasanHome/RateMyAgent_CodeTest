@@ -1,0 +1,8 @@
+<div class="row serachPanel" [formGroup]="agentsFormGroup">
+    <input type="text" formControlName="searchBox" class="form-control" />
+    <button type="button" class="btn" (click)="searchAgents()">Search</button>
+</div>
+
+<div *ngFor="let item of searchData.Results">
+    <img src="{{item.ImageUrl}}" class="avatarImage">{{ item.Name }} - {{item.SecondaryName}}
+</div>
