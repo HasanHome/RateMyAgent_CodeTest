@@ -7,6 +7,7 @@ describe('AutoSearchService', () => {
   let service: AutoSearchService;
 
   beforeEach(() => {
+    //need to write more unit test here
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
     });
