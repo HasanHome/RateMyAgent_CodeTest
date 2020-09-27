@@ -1,16 +1,47 @@
 
 @import '../../styles/colors.scss';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 
-.serachPanel{
-background-color: $steel-10;
+.serach-panel-image{
+   background-repeat: no-repeat;
+   background-size:100% auto;
+   background-position: 0px -120px;
+   background-attachment: fixed;
+   background-image: url('/assets/hero-image.png');
+   height: 190px;
+   width: 100%;
 }
 
-.avatarImage {
-    vertical-align: middle;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: none;
-    margin: 10px;
+.search-box{
+  width: 450px;
+  height: 45px;
+  font-size: 10pt;
+  float: left;
+  padding-left: 45px;
+}
+
+.search-button{
+  width: 100px;
+  height: 45px;
+  text-align: center;
+  font-size: 10pt;
+  font-weight: 600;
+  color: $secondary-text-color;
+  float: left;
+  text-transform: uppercase;
+}
+
+.avatar-size {
+    width: 80px !important;
+    height: 80px !important;
+ }
+
+  mat-card {
+   box-shadow: none !important;
+ }
+
+ mat-card-avatar{
+   width: 80px !important;
+   height: 80px !important;
  }

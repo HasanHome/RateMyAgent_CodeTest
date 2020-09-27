@@ -1,8 +1,23 @@
-<div class="row serachPanel" [formGroup]="agentsFormGroup">
-    <input type="text" formControlName="searchBox" class="form-control" />
-    <button type="button" class="btn" (click)="searchAgents()">Search</button>
+<div class="serach-panel-image" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center"
+    [formGroup]="agentsFormGroup">
+    <div>
+        <input type="text" formControlName="searchBox" class="form-control search-box" />
+        <button type="button" class="btn search-button" (click)="searchAgents()">Search</button>
+    </div>
 </div>
 
-<div *ngFor="let item of searchData.Results">
-    <img src="{{item.ImageUrl}}" class="avatarImage">{{ item.Name }} - {{item.SecondaryName}}
+<div *ngIf="searchData?.Results?.length" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center"
+    fxLayoutGap="5px">
+    <mat-card class="mat-main-card" *ngFor="let item of searchData?.Results" fxFlex="calc(33%-30px)"
+        fxFlex.sm="calc(50%-60px)">
+        <mat-card-header>
+            <img src="{{item.ImageUrl}}" mat-card-avatar>
+            <mat-card-title>{{ item.Name}}</mat-card-title>
+            <mat-card-subtitle>{{item.SecondaryName}}</mat-card-subtitle>
+        </mat-card-header>
+    </mat-card>
+</div>
+
+<div *ngIf="!searchData?.Results?.length">
+    <p>No data found</p>
 </div>
