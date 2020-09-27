@@ -27,6 +27,7 @@ export class AgentsComponent implements OnInit, OnDestroy {
   }
 
   searchAgents() {
+    //this method is actually calling the API
     const searchKey = this.agentsFormGroup.value.searchBox;
     if (searchKey) {
       const queryParams: IAgentSearchParams = {
@@ -45,6 +46,7 @@ export class AgentsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    // unsubscribing on destroy
     if (this.$searchData) {
       this.$searchData.unsubscribe();
     }

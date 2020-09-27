@@ -1,12 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 
 import { AutoSearchService } from './auto-search.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AutoSearchService', () => {
   let service: AutoSearchService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientModule],
+    });
     service = TestBed.inject(AutoSearchService);
   });
 
