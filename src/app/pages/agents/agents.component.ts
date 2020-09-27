@@ -15,6 +15,7 @@ export class AgentsComponent implements OnInit, OnDestroy {
   agentsFormGroup: FormGroup;
   searchData: IAgentSearchResults;
   $searchData: Subscription;
+  searchText: string = '';
 
   constructor(private fb: FormBuilder, private searchService: AutoSearchService) { }
 
@@ -32,11 +33,14 @@ export class AgentsComponent implements OnInit, OnDestroy {
         SearchTerm: searchKey,
       }
       this.$searchData = this.searchService.getSearchResults<IAgentSearchResults>(queryParams).subscribe((response) => {
-        this.searchData = response
+        this.searchData = response;
+        this.searchText = response?.Results.length ? '' : 'No data found';
+      }, (error) => {
+        this.searchText = 'Error getting data from API';
       });
     }
     else {
-      alert("enter a text to search");
+      this.searchText = 'Please enter text to search';
     }
   }
 

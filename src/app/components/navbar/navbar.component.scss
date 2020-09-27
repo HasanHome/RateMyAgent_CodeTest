@@ -1,22 +1,20 @@
 @import '../../styles/colors.scss';
 
 .navbar {
-  background-color: white;
+  background: linear-gradient(to bottom, $steel-5 0%,$steel-5 50%,$steel-10 50%,$steel-10 100%);
   border-bottom: 1px solid $border-color;
-  padding-left: 100px;
+  padding-left: 101px;
 
   a {
     display: inline-block;
     padding: 1rem 2rem;
     text-decoration: none;
-    text-transform: none;
     color: $secondary-text-color;
     text-transform: uppercase;
     font-size: 12pt;
-    font-weight: 600;
-
+    font-weight: 900;
+    border-left: 2px solid $steel-40;
     &.active {
-      font-weight: bold;
       color: $mint-dark;
     }
 

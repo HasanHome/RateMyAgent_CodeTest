@@ -11,12 +11,14 @@
    background-image: url('/assets/hero-image.png');
    height: 190px;
    width: 100%;
+   z-index: -1;
+   opacity: .9;
 }
+ 
 
 .search-box{
   width: 450px;
   height: 45px;
-  font-size: 10pt;
   float: left;
   padding-left: 45px;
 }
@@ -31,17 +33,32 @@
   float: left;
   text-transform: uppercase;
 }
-
-.avatar-size {
-    width: 80px !important;
-    height: 80px !important;
+ .error-text{
+    color: $red;
  }
 
-  mat-card {
+.mat-card {
+   padding-left: 5%;
    box-shadow: none !important;
  }
 
- mat-card-avatar{
+ .avatar{
    width: 80px !important;
    height: 80px !important;
+   border-radius: 50px;
  }
+
+ .card-primary-text{
+    padding-top: 15px;
+   font-size: 10pt;
+   font-style: bold;
+   font-weight: 800;
+   color: $primary-text-color;
+ }
+
+ .card-secondary-text{
+  font-size: 9pt;
+  font-style: bold;
+  font-weight: 800;
+  color: $secondary-text-color;
+}

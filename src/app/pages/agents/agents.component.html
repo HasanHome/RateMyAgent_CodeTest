@@ -5,19 +5,17 @@
         <button type="button" class="btn search-button" (click)="searchAgents()">Search</button>
     </div>
 </div>
-
+<br />
 <div *ngIf="searchData?.Results?.length" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center"
     fxLayoutGap="5px">
-    <mat-card class="mat-main-card" *ngFor="let item of searchData?.Results" fxFlex="calc(33%-30px)"
-        fxFlex.sm="calc(50%-60px)">
+    <mat-card *ngFor="let item of searchData?.Results" fxFlex="calc(33%-30px)" fxFlex.sm="calc(50%-60px)">
         <mat-card-header>
-            <img src="{{item.ImageUrl}}" mat-card-avatar>
-            <mat-card-title>{{ item.Name}}</mat-card-title>
-            <mat-card-subtitle>{{item.SecondaryName}}</mat-card-subtitle>
+            <img class="avatar" mat-card-avatar src="{{item.ImageUrl}}">
+            <mat-card-title class="card-primary-text">{{ item.Name}}</mat-card-title>
+            <mat-card-subtitle class="card-secondary-text">{{item.SecondaryName}}</mat-card-subtitle>
         </mat-card-header>
     </mat-card>
 </div>
-
-<div *ngIf="!searchData?.Results?.length">
-    <p>No data found</p>
+<div *ngIf="searchText">
+    <span class="error-text">{{searchText}}</span>
 </div>
