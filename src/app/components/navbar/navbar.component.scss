@@ -1,9 +1,13 @@
-@import '../../styles/colors.scss';
+@import "../../styles/colors.scss";
 
 .navbar {
-  background: linear-gradient(to bottom, $steel-5 0%,$steel-5 50%,$steel-10 50%,$steel-10 100%);
-  border-bottom: 1px solid $border-color;
-  padding-left: 101px;
+  background: linear-gradient(
+    to bottom,
+    $steel-5 0%,
+    $steel-5 50%,
+    $steel-10 50%,
+    $steel-10 100%
+  );
 
   a {
     display: inline-block;
@@ -13,13 +17,16 @@
     text-transform: uppercase;
     font-size: 12pt;
     font-weight: 900;
-    border-left: 2px solid $steel-40;
+    border-right: 2px solid $steel-40;
     &.active {
       color: $mint-dark;
     }
 
     &:hover {
       background-color: $steel-10;
+    }
+    &:first-child::before {
+      border-left: none;
     }
   }
 }

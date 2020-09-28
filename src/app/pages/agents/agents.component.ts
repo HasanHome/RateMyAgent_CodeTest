@@ -8,22 +8,23 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-agents',
   templateUrl: './agents.component.html',
-  styleUrls: ['./agents.component.scss']
+  styleUrls: ['./agents.component.scss'],
 })
 export class AgentsComponent implements OnInit, OnDestroy {
-
   agentsFormGroup: FormGroup;
   searchData: IAgentSearchResults;
   $searchData: Subscription;
   searchText: string = '';
 
-  constructor(private fb: FormBuilder, private searchService: AutoSearchService) { }
-
+  constructor(
+    private fb: FormBuilder,
+    private searchService: AutoSearchService
+  ) {}
 
   ngOnInit(): void {
     this.agentsFormGroup = this.fb.group({
-      searchBox: new FormControl()
-    })
+      searchBox: new FormControl(),
+    });
   }
 
   searchAgents() {
@@ -32,15 +33,19 @@ export class AgentsComponent implements OnInit, OnDestroy {
     if (searchKey) {
       const queryParams: IAgentSearchParams = {
         SearchTerm: searchKey,
-      }
-      this.$searchData = this.searchService.getSearchResults<IAgentSearchResults>(queryParams).subscribe((response) => {
-        this.searchData = response;
-        this.searchText = response?.Results.length ? '' : 'No data found';
-      }, (error) => {
-        this.searchText = 'Error getting data from API';
-      });
-    }
-    else {
+      };
+      this.$searchData = this.searchService
+        .getSearchResults<IAgentSearchResults>(queryParams)
+        .subscribe(
+          (response) => {
+            this.searchData = response;
+            this.searchText = response?.Results.length ? '' : 'No data found';
+          },
+          (error) => {
+            this.searchText = 'Error getting data from API';
+          }
+        );
+    } else {
       this.searchText = 'Please enter text to search';
     }
   }

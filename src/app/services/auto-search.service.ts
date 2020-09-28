@@ -3,13 +3,10 @@ import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AutoSearchService {
-
-  constructor(private apiService: ApiService) {
-
-  }
+  constructor(private apiService: ApiService) {}
   private endpoint: string = '/autosearch/agents';
 
   getSearchResults<T>(queryParams): Observable<T> {

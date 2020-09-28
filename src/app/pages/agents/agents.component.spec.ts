@@ -13,9 +13,13 @@ describe('AgentComponent', () => {
     //need to write more unit test here
     await TestBed.configureTestingModule({
       declarations: [AgentsComponent],
-      imports: [FormsModule, ReactiveFormsModule, RouterTestingModule, HttpClientModule]
-    })
-      .compileComponents();
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        RouterTestingModule,
+        HttpClientModule,
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

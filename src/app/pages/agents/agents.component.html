@@ -1,21 +1,48 @@
-<div class="serach-panel-image" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center"
-    [formGroup]="agentsFormGroup">
-    <div>
-        <input type="text" formControlName="searchBox" class="form-control search-box" />
-        <button type="button" class="btn search-button" (click)="searchAgents()">Search</button>
+<div class="main-panel">
+  <div
+    class="serach-panel-image"
+    fxLayout="row wrap"
+    fxLayout.xs="column"
+    fxLayoutAlign="space-around center"
+    [formGroup]="agentsFormGroup"
+  >
+    <div style="width: 70%; padding-left: 15%;">
+      <input
+        type="text"
+        formControlName="searchBox"
+        class="form-control search-box"
+      />
+      <button type="button" class="btn search-button" (click)="searchAgents()">
+        Search
+      </button>
     </div>
-</div>
-<br />
-<div *ngIf="searchData?.Results?.length" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center"
-    fxLayoutGap="5px">
-    <mat-card *ngFor="let item of searchData?.Results" fxFlex="calc(33%-30px)" fxFlex.sm="calc(50%-60px)">
-        <mat-card-header>
-            <img class="avatar" mat-card-avatar src="{{item.ImageUrl}}">
-            <mat-card-title class="card-primary-text">{{ item.Name}}</mat-card-title>
-            <mat-card-subtitle class="card-secondary-text">{{item.SecondaryName}}</mat-card-subtitle>
-        </mat-card-header>
+    <br />
+  </div>
+
+  <div
+    *ngIf="searchData?.Results?.length"
+    fxLayout="row wrap"
+    fxLayout.xs="column"
+    fxLayoutAlign="space-around center"
+    fxLayoutGap="5px"
+  >
+    <mat-card
+      *ngFor="let item of searchData?.Results"
+      fxFlex="calc(33%-30px)"
+      fxFlex.sm="calc(50%-60px)"
+    >
+      <mat-card-header>
+        <img class="avatar" mat-card-avatar src="{{ item.ImageUrl }}" />
+        <mat-card-title class="card-primary-text">{{
+          item.Name
+        }}</mat-card-title>
+        <mat-card-subtitle class="card-secondary-text">{{
+          item.SecondaryName
+        }}</mat-card-subtitle>
+      </mat-card-header>
     </mat-card>
-</div>
-<div *ngIf="searchText">
-    <span class="error-text">{{searchText}}</span>
+  </div>
+  <div *ngIf="searchText">
+    <span class="error-text">{{ searchText }}</span>
+  </div>
 </div>
